@@ -34,7 +34,7 @@ st.markdown("#### 列表元组创建向量")
 
 st.markdown("先看第一种简单的方式，使用列表或者元组来创建向量，执行下面的代码：")
 
-st.code("""
+st.code(r"""
 import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
 lst = [1,2,3,4,5,0,9,8,7,6]
 vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
@@ -52,7 +52,7 @@ st.markdown("#### 特殊函数创建向量")
 
 st.markdown("下面使用几个特殊的函数来创建几个特殊的向量，执行下面的代码：")
 
-st.code("""
+st.code(r"""
 vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
 vec2 = np.ones(10) # 创建10个1的向量
 vec3 = np.zeros(5) # 创建5个0的向量
