@@ -4,11 +4,13 @@ st.markdown("## 矩阵的创建和基本运算")
 
 st.sidebar.markdown("### 创建矩阵")
 
+st.markdown("### 创建矩阵")
+
 st.caption("Numpy库就是基于数组来运算的，正是因为这个，使得Python做数值计算的速度非常快。所谓数组，在代数运算中就可以理解为矩阵。一般而言，我们的矩阵是一个二维的，由行列指标组成的。")
 
-st.write("Numpy的数组不仅仅支持二维的数组，还可以创建更高维度的数组，比如三维的图像数据就是使用三维数组来存储的。下面提到的矩阵，不加一般说明，就是指二维数组。")
+st.caption("Numpy的数组不仅仅支持二维的数组，还可以创建更高维度的数组，比如三维的图像数据就是使用三维数组来存储的。下面提到的矩阵，不加一般说明，就是指二维数组。")
 
-st.write("学会使用Python做矩阵计算的前提是创建矩阵，下面就给出几种不同创建矩阵的方式。")
+st.markdown("学会使用Python做矩阵计算的前提是创建矩阵，下面就给出几种不同创建矩阵的方式。")
 
 st.markdown("""
 - 创建向量，再重构行列数，得到二维的数组。使用二维列表创建矩阵。
@@ -17,6 +19,67 @@ st.markdown("""
 st.markdown("上面所提到的向量，不会区分行向量还是列向量，可以理解为一行元素或者一列元素。原因有二：其一，向量不参与代数运算时，作出区分是无意义的。其二，代数运算中，向量可以直接与矩阵作运算的，但是在Python程序中是不可以的，必须是矩阵与矩阵之间作运算，也就是说，要将向量“显示地”转化为1行$n$列或者$n$行一列的矩阵。如何“显示地”转换，就是对它进行行列数重构。")
 
 st.sidebar.markdown("#### 创建向量")
+
+st.markdown("#### 创建向量")
+
+st.markdown("我们所说的第一种创建矩阵的方式，是先要创建向量，那么如何创建向量呢？也有两种方式：")
+
+st.markdown("""
+- 使用列表或者元组创建向量。
+- 使用特殊函数来创建向量。""")
+
+st.markdown("##### 列表元组创建向量")
+
+st.markdown("先看第一种简单的方式，使用列表或者元组来创建向量，执行下面的代码：")
+
+st.code("""
+	import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
+	lst = [1,2,3,4,5,0,9,8,7,6]
+	vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
+	print(vec)
+""")
+
+st.markdown("程序输出的结果如下：")
+
+import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
+lst = [1,2,3,4,5,0,9,8,7,6]
+vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
+print(vec)
+
+st.markdown("##### 特殊函数创建向量")
+
+st.markdown("下面使用几个特殊的函数来创建几个特殊的向量，执行下面的代码：")
+
+st.code("""
+	vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
+	vec2 = np.ones(10) # 创建10个1的向量
+	vec3 = np.zeros(5) # 创建5个0的向量
+	start = 1
+	end = 11
+	vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
+	vec5= np.empty(5) # 创建5个元素的空向量
+	length = 10
+	value = 3
+	vec6 = np.full(shape=length,fill_value=value)
+	print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
+""")
+
+st.markdown("程序输出的结果如下：")
+
+vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
+vec2 = np.ones(10) # 创建10个1的向量
+vec3 = np.zeros(5) # 创建5个0的向量
+start = 1
+end = 11
+vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
+vec5= np.empty(5) # 创建5个元素的空向量
+length = 10
+value = 3
+vec6 = np.full(shape=length,fill_value=value)
+print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
+
+
+st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
 
 st.sidebar.markdown("##### 列表元组创建向量")
 st.sidebar.markdown("##### 特殊函数创建向量")
