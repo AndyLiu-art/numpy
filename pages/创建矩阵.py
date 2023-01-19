@@ -1,8 +1,14 @@
 import streamlit as st
+# 目录
+st.sidebar.markdown("## 创建矩阵")
+st.sidebar.markdown("#### 列表元组创建向量")
+st.sidebar.markdown("#### 特殊函数创建向量")
+st.sidebar.markdown("### 向量重构数组")
+st.sidebar.markdown("### 二维列表创建矩阵")
+st.sidebar.markdown("### 特殊函数创建矩阵")
+st.sidebar.markdown("### 单位阵")
 
 st.markdown("# 矩阵的创建和基本运算")
-
-st.sidebar.markdown("## 创建矩阵")
 
 st.markdown("## 创建矩阵")
 
@@ -100,13 +106,89 @@ vec6
 
 st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
 
-st.sidebar.markdown("#### 列表元组创建向量")
-st.sidebar.markdown("#### 特殊函数创建向量")
+st.markdown("### 向量重构数组")
 
-st.sidebar.markdown("### 向量重构数组")
+st.markdown("现在来创建矩阵，先看第一种方法。创建向量再重构行列，重构是使用方法reshape。")
+st.code(r"""
+row = 4
+col = 5 # 行、列只需要指定一个即可，另一个写成-1
+mat1 = np.arange(20).reshape(row, -1)
+mat2 = np.reshape(np.arange(1,21), (row, col))
+print(mat1, mat2, sep="\n")
+""")
 
-st.sidebar.markdown("### 二维列表创建矩阵")
+st.markdown("程序输出的结果如下：")
 
-st.sidebar.markdown("### 特殊函数创建矩阵")
+mat1_start = st.slider("矩阵mat1的起始点：", 0, 10, value=0, step=1)
+mat1_end = st.slider("矩阵mat1的结束点：", 0, 100, value=20, step=1)
 
-st.sidebar.markdown("### 单位阵")
+row1 = st.number_input("请输入矩阵的行数：", 1, 10, value=4, step=1)
+st.caption("行数和列数只需要指定其中之一即可！")
+col1 = st.number_input("请输入矩阵的列数：", 1, 10, value=(mat1_end-mat1_start)/row1, step=1)
+
+mat1 = np.arange(mat1_start, mat1_end).reshape(row1, col1)
+mat1
+
+mat2_start = st.slider("矩阵mat1的起始点：", 0, 10, value=1, step=1)
+mat2_end = st.slider("矩阵mat1的结束点：", 0, 100, value=21, step=1)
+row2 = st.number_input("请输入矩阵的行数：", 1, 10, value=4, step=1)
+st.caption("行数和列数只需要指定其中之一即可！")
+col2 = st.number_input("请输入矩阵的列数：", 1, 10, value=(mat2_end-mat2_start)/row2, step=1)
+
+mat2 = np.reshape(np.arange(mat2_start, mat2_end), (row2, col2))
+mat2
+
+st.markdown("### 二维列表创建矩阵")
+
+st.markdown("第二种方式，使用二维列表创建矩阵，执行下面的代码：")
+st.code(r"""
+lst = [[1,2,3], [3,2,1], [4,5,6]]
+mat = np.array(lst)
+print(mat)
+""")
+
+
+st.markdown("程序输出的结果如下：")
+
+lst = [[1,2,3], [3,2,1], [4,5,6]]
+mat = np.array(lst)
+mat
+
+st.markdown("### 特殊函数创建矩阵")
+
+st.markdown("第三种生成矩阵的方式，是使用特殊函数直接生成矩阵。")
+
+st.code(r"""
+row = 3
+col = 5
+mat1 = np.ones((row, col)) # 1矩阵，直接生成必须填写一个元组作为参数
+mat2 = np.zeros((row, col)) # 0矩阵，元组作参数
+mat3 = np.full(shape=(row, col), fill_value=5) # 全值矩阵
+print(mat1, mat2, mat3, sep="\n")
+""")
+
+st.markdown("程序输出的结果如下：")
+row = st.number_input("矩阵的行数：", 1, 10, value=3, step=1)
+col = st.number_input("矩阵的列数：", 1, 10, value=5, step=1)
+mat1 = np.ones((row, col)) # 1矩阵，直接生成必须填写一个元组作为参数
+mat1
+
+mat2 = np.zeros((row, col)) # 0矩阵，元组作参数
+mat2
+
+fill_value = st.number_input("矩阵mat3的元素为：", 0, 100, value=5, step=1)
+mat3 = np.full(shape=(row, col), fill_value=fill_value) # 全值矩阵
+mat3
+
+st.markdown("### 单位阵")
+
+st.markdown("下面使用一个最实用的函数来创建单位矩阵：")
+st.code(r"""
+mat = np.identity(4) # 创建一个4×4的单位阵
+print(mat)
+""")
+
+st.markdown("程序输出的结果如下：")
+n = st.slider("单位矩阵的行数：", 1, 10, value=4, step=1)
+mat = np.identity(n) # 创建一个4×4的单位阵
+mat
