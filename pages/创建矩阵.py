@@ -168,15 +168,16 @@ print(mat1, mat2, mat3, sep="\n")
 
 st.markdown("程序输出的结果如下：")
 row = st.number_input("矩阵的行数：", 1, 10, value=3, step=1)
-col = st.number_input("矩阵的列数：", 1, 10, value=5, step=1)
-mat1 = np.ones((row, col)) # 1矩阵，直接生成必须填写一个元组作为参数
+st.caption("行数和列数只需要指定其中之一即可！")
+
+mat1 = np.ones((row, -1)) # 1矩阵，直接生成必须填写一个元组作为参数
 mat1
 
-mat2 = np.zeros((row, col)) # 0矩阵，元组作参数
+mat2 = np.zeros((row, -1)) # 0矩阵，元组作参数
 mat2
 
 fill_value = st.number_input("矩阵mat3的元素为：", 0, 100, value=5, step=1)
-mat3 = np.full(shape=(row, col), fill_value=fill_value) # 全值矩阵
+mat3 = np.full(shape=(row, -1), fill_value=fill_value) # 全值矩阵
 mat3
 
 st.markdown("### 单位阵")
