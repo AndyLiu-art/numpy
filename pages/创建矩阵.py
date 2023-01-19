@@ -46,7 +46,7 @@ st.markdown("程序输出的结果如下：")
 import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
 lst = [1,2,3,4,5,0,9,8,7,6]
 vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
-st.write(vec)
+vec
 
 st.markdown("#### 特殊函数创建向量")
 
