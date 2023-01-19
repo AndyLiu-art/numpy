@@ -44,7 +44,7 @@ print(vec)
 st.markdown("程序输出的结果如下：")
 
 import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
-options = st.multiselect("请选择数组的元素：", [i for i in range(100)])
+options = st.multiselect("请选择数组的元素：", [i for i in range(100)], default=[1,2,3,4,5,0,9,8,7,6])
 st.write("你选的元素是：", options)
 vec = np.array(options) # 使用np.array()函数来创建向量，同时也可以创建矩阵
 vec
@@ -90,7 +90,7 @@ vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
 vec4
 
 vec5_num = st.slider("向量vec5的元素个数：", 1, 10, value=5, step=1)
-vec5= np.empty(5) # 创建5个元素的空向量
+vec5= np.empty(vec5_num) # 创建5个元素的空向量
 vec5
 
 vec6_length = st.number_input("向量vec6的元素个数：", 1, 10, value=10, step=1)
