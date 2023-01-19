@@ -1,10 +1,10 @@
 import streamlit as st
 
-st.markdown("## 矩阵的创建和基本运算")
+st.markdown("# 矩阵的创建和基本运算")
 
-st.sidebar.markdown("### 创建矩阵")
+st.sidebar.markdown("## 创建矩阵")
 
-st.markdown("### 创建矩阵")
+st.markdown("## 创建矩阵")
 
 st.caption("Numpy库就是基于数组来运算的，正是因为这个，使得Python做数值计算的速度非常快。所谓数组，在代数运算中就可以理解为矩阵。一般而言，我们的矩阵是一个二维的，由行列指标组成的。")
 
@@ -18,9 +18,9 @@ st.markdown("""
 
 st.markdown("上面所提到的向量，不会区分行向量还是列向量，可以理解为一行元素或者一列元素。原因有二：其一，向量不参与代数运算时，作出区分是无意义的。其二，代数运算中，向量可以直接与矩阵作运算的，但是在Python程序中是不可以的，必须是矩阵与矩阵之间作运算，也就是说，要将向量“显示地”转化为1行$n$列或者$n$行一列的矩阵。如何“显示地”转换，就是对它进行行列数重构。")
 
-st.sidebar.markdown("#### 创建向量")
+st.sidebar.markdown("### 创建向量")
 
-st.markdown("#### 创建向量")
+st.markdown("### 创建向量")
 
 st.markdown("我们所说的第一种创建矩阵的方式，是先要创建向量，那么如何创建向量呢？也有两种方式：")
 
@@ -28,7 +28,7 @@ st.markdown("""
 - 使用列表或者元组创建向量。
 - 使用特殊函数来创建向量。""")
 
-st.markdown("##### 列表元组创建向量")
+st.markdown("#### 列表元组创建向量")
 
 st.markdown("先看第一种简单的方式，使用列表或者元组来创建向量，执行下面的代码：")
 
@@ -46,7 +46,7 @@ lst = [1,2,3,4,5,0,9,8,7,6]
 vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
 print(vec)
 
-st.markdown("##### 特殊函数创建向量")
+st.markdown("#### 特殊函数创建向量")
 
 st.markdown("下面使用几个特殊的函数来创建几个特殊的向量，执行下面的代码：")
 
@@ -81,13 +81,13 @@ print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
 
 st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
 
-st.sidebar.markdown("##### 列表元组创建向量")
-st.sidebar.markdown("##### 特殊函数创建向量")
+st.sidebar.markdown("#### 列表元组创建向量")
+st.sidebar.markdown("#### 特殊函数创建向量")
 
-st.sidebar.markdown("#### 向量重构数组")
+st.sidebar.markdown("### 向量重构数组")
 
-st.sidebar.markdown("#### 二维列表创建矩阵")
+st.sidebar.markdown("### 二维列表创建矩阵")
 
-st.sidebar.markdown("#### 特殊函数创建矩阵")
+st.sidebar.markdown("### 特殊函数创建矩阵")
 
-st.sidebar.markdown("#### 单位阵")
+st.sidebar.markdown("### 单位阵")
