@@ -16,7 +16,9 @@ st.markdown("""
 - 创建向量，再重构行列数，得到二维的数组。使用二维列表创建矩阵。
 - 通过特殊函数创建特殊矩阵。""")
 
-st.markdown("上面所提到的向量，不会区分行向量还是列向量，可以理解为一行元素或者一列元素。原因有二：其一，向量不参与代数运算时，作出区分是无意义的。其二，代数运算中，向量可以直接与矩阵作运算的，但是在Python程序中是不可以的，必须是矩阵与矩阵之间作运算，也就是说，要将向量“显示地”转化为1行$n$列或者$n$行一列的矩阵。如何“显示地”转换，就是对它进行行列数重构。")
+st.markdown("上面所提到的向量，不会区分行向量还是列向量，可以理解为一行元素或者一列元素。原因有二：")
+
+st.caption("其一，向量不参与代数运算时，作出区分是无意义的。其二，代数运算中，向量可以直接与矩阵作运算的，但是在Python程序中是不可以的，必须是矩阵与矩阵之间作运算，也就是说，要将向量“显示地”转化为1行$n$列或者$n$行一列的矩阵。如何“显示地”转换，就是对它进行行列数重构。")
 
 st.sidebar.markdown("### 创建向量")
 
@@ -33,10 +35,10 @@ st.markdown("#### 列表元组创建向量")
 st.markdown("先看第一种简单的方式，使用列表或者元组来创建向量，执行下面的代码：")
 
 st.code("""
-	import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
-	lst = [1,2,3,4,5,0,9,8,7,6]
-	vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
-	print(vec)
+import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
+lst = [1,2,3,4,5,0,9,8,7,6]
+vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
+print(vec)
 """)
 
 st.markdown("程序输出的结果如下：")
@@ -44,24 +46,24 @@ st.markdown("程序输出的结果如下：")
 import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
 lst = [1,2,3,4,5,0,9,8,7,6]
 vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
-print(vec)
+st.write(vec)
 
 st.markdown("#### 特殊函数创建向量")
 
 st.markdown("下面使用几个特殊的函数来创建几个特殊的向量，执行下面的代码：")
 
 st.code("""
-	vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
-	vec2 = np.ones(10) # 创建10个1的向量
-	vec3 = np.zeros(5) # 创建5个0的向量
-	start = 1
-	end = 11
-	vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
-	vec5= np.empty(5) # 创建5个元素的空向量
-	length = 10
-	value = 3
-	vec6 = np.full(shape=length,fill_value=value)
-	print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
+vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
+vec2 = np.ones(10) # 创建10个1的向量
+vec3 = np.zeros(5) # 创建5个0的向量
+start = 1
+end = 11
+vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
+vec5= np.empty(5) # 创建5个元素的空向量
+length = 10
+value = 3
+vec6 = np.full(shape=length,fill_value=value)
+print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
 """)
 
 st.markdown("程序输出的结果如下：")
@@ -76,7 +78,7 @@ vec5= np.empty(5) # 创建5个元素的空向量
 length = 10
 value = 3
 vec6 = np.full(shape=length,fill_value=value)
-print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
+st.write(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
 
 
 st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
