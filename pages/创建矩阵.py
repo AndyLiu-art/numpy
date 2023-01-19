@@ -68,6 +68,10 @@ print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
 
 st.markdown("程序输出的结果如下：")
 
+vec1_start = st.slider("选择vec1的起始点", 0, 10, step=1)
+st.caption("选择vec1的起始点为{}".format(vec1_start))
+vec1_end = st.slider("选择vec1的结束点", 11, 20, step=1)
+st.caption("选择vec1的结束点为{}".format(vec1_end))
 vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
 vec2 = np.ones(10) # 创建10个1的向量
 vec3 = np.zeros(5) # 创建5个0的向量
