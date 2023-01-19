@@ -44,8 +44,9 @@ print(vec)
 st.markdown("程序输出的结果如下：")
 
 import numpy as np # 导入必要的包，这是必要的，后面书写上可能会省略
-lst = [1,2,3,4,5,0,9,8,7,6]
-vec = np.array(lst) # 使用np.array()函数来创建向量，同时也可以创建矩阵
+options = st.multiselect("请选择数组的元素：", [i for i in range(100)])
+st.write("你选的元素是：", options)
+vec = np.array(options) # 使用np.array()函数来创建向量，同时也可以创建矩阵
 vec
 
 st.markdown("#### 特殊函数创建向量")
@@ -68,27 +69,34 @@ print(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
 
 st.markdown("程序输出的结果如下：")
 
-vec1_start = st.slider("选择vec1的起始点", 0, 10, step=1)
+vec1_start = st.slider("选择vec1的起始点", 0, 10, step=1, value=0)
 st.caption("选择vec1的起始点为{}".format(vec1_start))
-vec1_end = st.slider("选择vec1的结束点", 11, 20, step=1)
+vec1_end = st.slider("选择vec1的结束点", 0, 20, step=1, value=10)
 st.caption("选择vec1的结束点为{}".format(vec1_end))
 vec1 = np.arange(vec1_start, vec1_end) # 默认从0开始，步长为1，截止到9
+vec1
 
-vec2_num = st.number_input("请输入要创建的向量vec2元素个数", 1, 10)
+vec2_num = st.number_input("请输入要创建的向量vec2元素个数", 1, 10, value=10, step=1)
 vec2 = np.ones(vec2_num) # 创建10个1的向量
+vec2
 
-vec3_num = st.number_input("请输入要创建的向量vec3元素个数", 1, 10)
+vec3_num = st.number_input("请输入要创建的向量vec3元素个数", 1, 10, value=5, step=1)
 vec3 = np.zeros(vec3_num) # 创建5个0的向量
+vec3
 
-start = 1
-end = 11
+start = st.number_input("向量vec4的起始点：",0, 10, step=1, value=1)
+end = st.number_input("向量vec4的结束点：",0, 100, step=1, value=11)
 vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
-vec5= np.empty(5) # 创建5个元素的空向量
-length = 10
-value = 3
-vec6 = np.full(shape=length,fill_value=value)
-st.write(vec1, vec2, vec3, vec4, vec5, vec6, sep="\n")
+vec4
 
+vec5_num = st.slider("向量vec5的元素个数：", 1, 10, value=5, step=1)
+vec5= np.empty(5) # 创建5个元素的空向量
+vec5
+
+vec6_length = st.number_input("向量vec6的元素个数：", 1, 10, value=10, step=1)
+vec6_value = st.number_input("向量vec6的元素值：", 1, 10, value=3, step=1)
+vec6 = np.full(shape=vec6_length,fill_value=vec6_value)
+vec6
 
 st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
 
