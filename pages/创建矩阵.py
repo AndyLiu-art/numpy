@@ -131,10 +131,10 @@ mat1
 mat2_start = st.slider("矩阵mat2的起始点：", 0, 10, value=1, step=1)
 mat2_end = st.slider("矩阵mat2的结束点：", 0, 100, value=21, step=1)
 
-row2 = st.number_input("请输入矩阵的行数：", 1, 10, value=4, step=1)
+# row2 = st.number_input("请输入矩阵的行数：", 1, 10, value=4, step=1)
 st.caption("行数和列数只需要指定其中之一即可！")
 
-mat2 = np.reshape(np.arange(mat2_start, mat2_end), (row2, -1))
+mat2 = np.reshape(np.arange(mat2_start, mat2_end), (5, -1))
 mat2
 
 st.markdown("### 二维列表创建矩阵")
