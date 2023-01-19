@@ -72,9 +72,14 @@ vec1_start = st.slider("选择vec1的起始点", 0, 10, step=1)
 st.caption("选择vec1的起始点为{}".format(vec1_start))
 vec1_end = st.slider("选择vec1的结束点", 11, 20, step=1)
 st.caption("选择vec1的结束点为{}".format(vec1_end))
-vec1 = np.arange(10) # 默认从0开始，步长为1，截止到9
-vec2 = np.ones(10) # 创建10个1的向量
-vec3 = np.zeros(5) # 创建5个0的向量
+vec1 = np.arange(vec1_start, vec1_end) # 默认从0开始，步长为1，截止到9
+
+vec2_num = st.number_input("请输入要创建的向量vec2元素个数", 1, 10)
+vec2 = np.ones(vec2_num) # 创建10个1的向量
+
+vec3_num = st.number_input("请输入要创建的向量vec3元素个数", 1, 10)
+vec3 = np.zeros(vec3_num) # 创建5个0的向量
+
 start = 1
 end = 11
 vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
