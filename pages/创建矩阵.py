@@ -55,7 +55,8 @@ vec = np.array(options) # 使用np.array()函数来创建向量，同时也可�
 vec
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.array的帮助信息？"):
-    st.text_area("函数np.array的帮助信息如下：", st.help(np.array))
+    st.caption("函数np.array的帮助信息如下：")
+    st.help(np.array)
 # 四级标题
 st.markdown("#### 特殊函数创建向量")
 # 文本
@@ -85,33 +86,41 @@ vec1 = np.arange(vec1_start, vec1_end) # 默认从0开始，步长为1，截止�
 vec1
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.arange的帮助信息？"):
-    st.text_area("函数np.arange的帮助信息如下：", st.help(np.arange))
+    st.caption("函数np.arange的帮助信息如下：")
+    st.help(np.arange)
 
 vec2_num = st.number_input("请输入要创建的向量vec2元素个数", 1, 10, value=10, step=1)
 vec2 = np.ones(vec2_num) # 创建10个1的向量
 vec2
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.ones的帮助信息？"):
-    st.text_area("函数np.ones的帮助信息如下：", st.help(np.ones))
+    st.caption("函数np.ones的帮助信息如下：")
+    st.help(np.ones)
 
 vec3_num = st.number_input("请输入要创建的向量vec3元素个数", 1, 10, value=5, step=1)
 vec3 = np.zeros(vec3_num) # 创建5个0的向量
 vec3
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.zeros的帮助信息？"):
-    st.text_area("函数np.zeros的帮助信息如下：", st.help(np.zeros))
+    st.caption("函数np.zeros的帮助信息如下：")
+    st.help(np.zeros)
 
 start = st.number_input("向量vec4的起始点：",0, 10, step=1, value=1)
 end = st.number_input("向量vec4的结束点：",0, 100, step=1, value=11)
 vec4 = np.arange(start, end) # 创建10个元素的向量，1，2，...，10
 vec4
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.arange的帮助信息？"):
+    st.caption("函数np.arange的帮助信息如下：")
+    st.help(np.arange)
 
 vec5_num = st.slider("向量vec5的元素个数：", 1, 10, value=5, step=1)
 vec5= np.empty(vec5_num) # 创建5个元素的空向量
 vec5
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.empty的帮助信息？"):
-    st.text_area("函数np.empty的帮助信息如下：", st.help(np.empty))
+    st.caption("函数np.empty的帮助信息如下：")
+    st.help(np.empty)
 
 vec6_length = st.number_input("向量vec6的元素个数：", 1, 10, value=10, step=1)
 vec6_value = st.number_input("向量vec6的元素值：", 1, 10, value=3, step=1)
@@ -119,7 +128,8 @@ vec6 = np.full(shape=vec6_length,fill_value=vec6_value)
 vec6
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.full的帮助信息？"):
-    st.text_area("函数np.full的帮助信息如下：", st.help(np.full))
+    st.caption("函数np.full的帮助信息如下：")
+    st.help(np.full)
 # 文本
 st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
 # 三级标题
@@ -141,40 +151,52 @@ mat1_start = st.slider("矩阵mat1的起始点：", 0, 10, value=0, step=1)
 mat1_end = st.slider("矩阵mat1的结束点：", 0, 100, value=20, step=1)
 
 row1 = st.number_input("请输入矩阵mat1的行数：", 1, 10, value=4, step=1)
-st.caption("行数和列数只需要指定其中之一即可！")
-
-mat1 = np.arange(mat1_start, mat1_end).reshape(row1, -1)
-mat1
+try:
+    mat1 = np.arange(mat1_start, mat1_end).reshape(row1, -1)
+    mat1
+except:
+    st.error("矩阵元素个数和行数不匹配！！！", icon="🚨")
 
 mat2_start = st.slider("矩阵mat2的起始点：", 0, 10, value=1, step=1)
 mat2_end = st.slider("矩阵mat2的结束点：", 0, 100, value=21, step=1)
 
 row2 = st.number_input("请输入矩阵mat2的行数：", 1, 10, value=4, step=1)
-st.caption("行数和列数只需要指定其中之一即可！")
+try:
+    mat2 = np.reshape(np.arange(mat2_start, mat2_end), (row2, -1))
+    mat2
+except:
+    st.error("矩阵元素个数和行数不匹配！！！", icon="🚨")
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.reshape的帮助信息？"):
+    st.caption("函数np.reshape的帮助信息如下：")
+    st.help(np.reshape)
 
-mat2 = np.reshape(np.arange(mat2_start, mat2_end), (5, -1))
-mat2
-
+# 三级标题
 st.markdown("### 二维列表创建矩阵")
-
+# 文本
 st.markdown("第二种方式，使用二维列表创建矩阵，执行下面的代码：")
+# 代码
 st.code(r"""
 lst = [[1,2,3], [3,2,1], [4,5,6]]
 mat = np.array(lst)
 print(mat)
 """)
-
-
+# 文本
 st.markdown("程序输出的结果如下：")
-
+# 程序
 lst = [[1,2,3], [3,2,1], [4,5,6]]
 mat = np.array(lst)
 mat
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.array的帮助信息？"):
+    st.caption("函数np.array的帮助信息如下：")
+    st.help(np.array)
 
+# 三级标题
 st.markdown("### 特殊函数创建矩阵")
-
+# 文本
 st.markdown("第三种生成矩阵的方式，是使用特殊函数直接生成矩阵。")
-
+# 代码
 st.code(r"""
 row = 3
 col = 5
@@ -183,30 +205,48 @@ mat2 = np.zeros((row, col)) # 0矩阵，元组作参数
 mat3 = np.full(shape=(row, col), fill_value=5) # 全值矩阵
 print(mat1, mat2, mat3, sep="\n")
 """)
-
+# 文本
 st.markdown("程序输出的结果如下：")
+# 程序
 row = st.number_input("矩阵mat1-3的行数：", 1, 10, value=3, step=1)
 col = st.number_input("矩阵mat1-3的列数：", 1, 10, value=5, step=1)
 
 mat1 = np.ones((row, col)) # 1矩阵，直接生成必须填写一个元组作为参数
 mat1
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.ones的帮助信息？"):
+    st.caption("函数np.ones的帮助信息如下：")
+    st.help(np.ones)
 
 mat2 = np.zeros((row, col)) # 0矩阵，元组作参数
 mat2
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.zeros的帮助信息？"):
+    st.caption("函数np.zeros的帮助信息如下：")
+    st.help(np.zeros)
 
 fill_value = st.number_input("矩阵mat3的元素为：", 0, 100, value=5, step=1)
 mat3 = np.full(shape=(row, col), fill_value=fill_value) # 全值矩阵
 mat3
-
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.full的帮助信息？"):
+    st.caption("函数np.full的帮助信息如下：")
+    st.help(np.full)
+# 三级标题
 st.markdown("### 单位阵")
-
+# 文本
 st.markdown("下面使用一个最实用的函数来创建单位矩阵：")
+# 代码
 st.code(r"""
 mat = np.identity(4) # 创建一个4×4的单位阵
 print(mat)
 """)
-
+# 程序
 st.markdown("程序输出的结果如下：")
 n = st.slider("单位矩阵的行数：", 1, 10, value=4, step=1)
 mat = np.identity(n) # 创建一个4×4的单位阵
 mat
+# 查看函数的帮助
+if st.checkbox("是否显示函数np.identity的帮助信息？"):
+    st.caption("函数np.identity的帮助信息如下：")
+    st.help(np.identity)
