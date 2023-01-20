@@ -55,7 +55,7 @@ vec = np.array(options) # 使用np.array()函数来创建向量，同时也可�
 vec
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.array的帮助信息？"):
-    st.text_area(st.help(np.array))
+    st.text_area("函数np.array的帮助信息如下：", st.help(np.array))
 # 四级标题
 st.markdown("#### 特殊函数创建向量")
 # 文本
@@ -85,21 +85,21 @@ vec1 = np.arange(vec1_start, vec1_end) # 默认从0开始，步长为1，截止�
 vec1
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.arange的帮助信息？"):
-    st.text_area(st.help(np.arange))
+    st.text_area("函数np.arange的帮助信息如下：", st.help(np.arange))
 
 vec2_num = st.number_input("请输入要创建的向量vec2元素个数", 1, 10, value=10, step=1)
 vec2 = np.ones(vec2_num) # 创建10个1的向量
 vec2
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.ones的帮助信息？"):
-    st.text_area(st.help(np.ones))
+    st.text_area("函数np.ones的帮助信息如下：", st.help(np.ones))
 
 vec3_num = st.number_input("请输入要创建的向量vec3元素个数", 1, 10, value=5, step=1)
 vec3 = np.zeros(vec3_num) # 创建5个0的向量
 vec3
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.zeros的帮助信息？"):
-    st.text_area(st.help(np.zeros))
+    st.text_area("函数np.zeros的帮助信息如下：", st.help(np.zeros))
 
 start = st.number_input("向量vec4的起始点：",0, 10, step=1, value=1)
 end = st.number_input("向量vec4的结束点：",0, 100, step=1, value=11)
@@ -111,7 +111,7 @@ vec5= np.empty(vec5_num) # 创建5个元素的空向量
 vec5
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.empty的帮助信息？"):
-    st.text_area(st.help(np.empty))
+    st.text_area("函数np.empty的帮助信息如下：", st.help(np.empty))
 
 vec6_length = st.number_input("向量vec6的元素个数：", 1, 10, value=10, step=1)
 vec6_value = st.number_input("向量vec6的元素值：", 1, 10, value=3, step=1)
@@ -119,7 +119,7 @@ vec6 = np.full(shape=vec6_length,fill_value=vec6_value)
 vec6
 # 查看函数的帮助
 if st.checkbox("是否显示函数np.full的帮助信息？"):
-    st.text_area(st.help(np.full))
+    st.text_area("函数np.full的帮助信息如下：", st.help(np.full))
 # 文本
 st.markdown("需要注意的是，empty函数得到的“空向量”是一个非常小的数组成的向量，而这些非常小的数是随机生成的。")
 # 三级标题
